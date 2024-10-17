@@ -1,0 +1,4 @@
+repository "Black Myth Goku@hieuvuanguday@cloud"
+  path "/"
+    br "/main"
+    co "/main"
