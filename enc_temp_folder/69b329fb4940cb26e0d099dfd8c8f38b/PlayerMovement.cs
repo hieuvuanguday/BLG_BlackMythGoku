@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Diagnostics;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -147,11 +146,11 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
-        if (idle != null) idle.SetActive(false);
-        if (run != null) run.SetActive(false);
-        if (jump != null) jump.SetActive(false);
-        if (kick != null) kick.SetActive(false);
-        if (punch != null) punch.SetActive(false);
+        idle.SetActive(false);
+        run.SetActive(false);
+        jump.SetActive(false);
+        kick.SetActive(false);
+        punch.SetActive(false);
 
         activeObject.SetActive(true);
         activeObject.transform.position = currentPosition;

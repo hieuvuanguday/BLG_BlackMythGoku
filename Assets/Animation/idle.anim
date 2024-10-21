@@ -65,7 +65,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: idle/idle_head
+    path: idle_head
   m_PositionCurves:
   - curve:
       serializedVersion: 2
@@ -118,7 +118,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: idle/idle_body
+    path: idle_body
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -170,7 +170,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: idle/idle_head
+    path: idle_head
   m_ScaleCurves: []
   m_FloatCurves: []
   m_PPtrCurves: []
@@ -182,7 +182,7 @@ AnimationClip:
   m_ClipBindingConstant:
     genericBindings:
     - serializedVersion: 2
-      path: 2132170682
+      path: 384350684
       attribute: 1
       script: {fileID: 0}
       typeID: 4
@@ -191,7 +191,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 55421588
+      path: 1790133490
       attribute: 1
       script: {fileID: 0}
       typeID: 4
@@ -200,7 +200,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 55421588
+      path: 1790133490
       attribute: 4
       script: {fileID: 0}
       typeID: 4
@@ -283,7 +283,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.x
-    path: idle/idle_body
+    path: idle_body
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -340,7 +340,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.y
-    path: idle/idle_body
+    path: idle_body
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -397,7 +397,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.z
-    path: idle/idle_body
+    path: idle_body
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -454,7 +454,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.x
-    path: idle/idle_head
+    path: idle_head
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -511,7 +511,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.y
-    path: idle/idle_head
+    path: idle_head
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -568,7 +568,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.z
-    path: idle/idle_head
+    path: idle_head
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -625,7 +625,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.x
-    path: idle/idle_head
+    path: idle_head
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -682,7 +682,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.y
-    path: idle/idle_head
+    path: idle_head
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -739,7 +739,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.z
-    path: idle/idle_head
+    path: idle_head
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -752,7 +752,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: idle/idle_head
+    path: idle_head
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -764,7 +764,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: idle/idle_head
+    path: idle_head
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -776,7 +776,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: idle/idle_head
+    path: idle_head
     classID: 4
     script: {fileID: 0}
     flags: 0
