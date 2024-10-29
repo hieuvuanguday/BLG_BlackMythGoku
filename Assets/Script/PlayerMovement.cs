@@ -1,159 +1,53 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO.Pipes;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public float moveSpeed = 3f;
-    public float jumpForce = 3.5f;
-    public Transform groundCheck;
-    public LayerMask groundLayer;
-    private Rigidbody2D rb;
-    private bool isGrounded;
-    private Animator animator;
+    public PlayerController playerController;
+    public Animator animator;
+    public float runSpeed = 20f;
+    public float horizontalMove = 0f;
+    public bool isJump = false;
+    public bool isCrouch = false;
 
-    public GameObject idle;
-    public GameObject run;
-    public GameObject jump;
-    public GameObject kick;
-    public GameObject punch;
-
-    private void Start()
+    void Update()
     {
-        rb = GetComponent<Rigidbody2D>();
-        animator = GetComponent<Animator>();
-        ShowIdle();
-    }
+        horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
+        animator.SetFloat("Speed", Mathf.Abs(horizontalMove));
 
-    private void Update()
-    {
-        Move();
-        Jump();
-        Kick();
-        Punch();
 
-        UpdateAnimationState();
-    }
-
-    void Move()
-    {
-        float moveInput = Input.GetAxis("Horizontal");
-        rb.velocity = new Vector2(moveInput * moveSpeed, rb.velocity.y);
-        animator.SetBool("isRunning", moveInput != 0);
-    }
-
-    void Jump()
-    {
-        isGrounded = Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer);
-
-        if (isGrounded && Input.GetButtonDown("Jump"))
+        if (Input.GetButtonDown("Jump"))
         {
-            rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+            isJump = true;
             animator.SetBool("isJumping", true);
-            ShowJump();
         }
-        else if (Input.GetButtonUp("Jump"))
+        
+        if(Input.GetButtonDown("Crouch"))
         {
-            animator.SetBool("isJumping", false);
+            isCrouch = true;
+        } else if (Input.GetButtonUp("Crouch"))
+        {
+            isCrouch = false;
         }
     }
 
-    void Kick()
-    {
-        if (Input.GetKeyDown(KeyCode.K))
-        {
-            animator.SetBool("isKicking", true);
-            ShowKick();
-        }
-        else if (Input.GetKeyUp(KeyCode.K))
-        {
-            animator.SetBool("isKicking", false);
-        }
+    public void OnLanding()
+    {   
+        animator.SetBool("isJumping", false);
     }
 
-    void Punch()
+    public void OnCrouching(bool isCrouching)
     {
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-            animator.SetBool("isPunching", true);
-            ShowPunch();
-        }
-        else if (Input.GetKeyUp(KeyCode.P))
-        {
-            animator.SetBool("isPunching", false);
-        }
+        animator.SetBool("isCrouching", isCrouching);
     }
 
-    void UpdateAnimationState()
+    void FixedUpdate() 
     {
-        if (animator.GetBool("isJumping"))
-        {
-            ShowJump();
-        }
-        else if (animator.GetBool("isKicking"))
-        {
-            ShowKick();
-        }
-        else if (animator.GetBool("isPunching"))
-        {
-            ShowPunch();
-        }
-        else if (animator.GetBool("isRunning"))
-        {
-            ShowRun();
-        }
-        else
-        {
-            ShowIdle();
-        }
-    }
-
-    void ShowIdle()
-    {
-        SetActiveState(idle);
-    }
-
-    void ShowRun()
-    {
-        SetActiveState(run);
-    }
-
-    void ShowJump()
-    {
-        SetActiveState(jump);
-    }
-
-    void ShowKick()
-    {
-        SetActiveState(kick);
-    }
-
-    void ShowPunch()
-    {
-        SetActiveState(punch);
-    }
-
-    void SetActiveState(GameObject activeObject)
-    {
-        Vector3 currentPosition = Vector3.zero;
-
-        foreach (Transform child in transform)
-        {
-            if (child.gameObject.activeSelf)
-            {
-                currentPosition = child.position;
-                break;
-            }
-        }
-
-        if (idle != null) idle.SetActive(false);
-        if (run != null) run.SetActive(false);
-        if (jump != null) jump.SetActive(false);
-        if (kick != null) kick.SetActive(false);
-        if (punch != null) punch.SetActive(false);
-
-        activeObject.SetActive(true);
-        activeObject.transform.position = currentPosition;
+        playerController.Move(horizontalMove * Time.fixedDeltaTime, isCrouch, isJump);
+        isJump = false;
     }
 }
+    
