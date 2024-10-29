@@ -61,6 +61,15 @@ public class PlayerMovement : MonoBehaviour
         {
             enemy.GetComponent<Enemy>().TakeDamage(damagePunch);
         }
+
+        if (Input.GetButtonDown("Fire2"))
+        {
+            animator.SetBool("isPunching", true);
+        } else if (Input.GetButtonUp("Fire2"))
+        {
+
+            animator.SetBool("isPunching", false);
+        }
     }
 
     public void Kick()
