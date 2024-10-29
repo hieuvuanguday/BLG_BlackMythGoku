@@ -32,6 +32,15 @@ public class PlayerMovement : MonoBehaviour
         {
             isCrouch = false;
         }
+
+        if (Input.GetButtonDown("Fire2"))
+        {
+            animator.SetBool("isPunching", true);
+        } else if (Input.GetButtonUp("Fire2"))
+        {
+
+            animator.SetBool("isPunching", false);
+        }
     }
 
     public void OnLanding()
