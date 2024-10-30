@@ -24,7 +24,7 @@ EditorBuildSettings:
     path: Assets/Scenes/5th_floor.unity
     guid: 39b4acd650fed3c4594534836ead710e
   - enabled: 1
-    path: Assets/Scenes/6th_floor.unity
+    path: Assets/Scenes/zth_floor.unity
     guid: 1211390b045019644b34023215a157cf
   - enabled: 1
     path: Assets/Scenes/7th_floor.unity
