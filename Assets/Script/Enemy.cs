@@ -1,21 +1,42 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Enemy : MonoBehaviour
 {
-    public static int maxHealth = 500;
-    private int health = maxHealth;
+    public float maxHealth;
+    float currHealth;
+
+
     public GameObject deathEffect;
 
-    public void TakeDamage (int damage)
-    {
-        health -= damage;
+    //khai bao cac bien de tao thanh mau cho enemy
+    public Slider enemyHealthSlider;
 
-        if (health <= 0)
-        {
+    void Start()
+    {
+        currHealth = maxHealth;
+
+        enemyHealthSlider.maxValue = maxHealth;
+        enemyHealthSlider.value = maxHealth;
+    }
+
+
+    void Update()
+    {
+
+    }
+
+
+    public void TakeDamage (float damage)
+    {
+        currHealth -= damage;
+
+        enemyHealthSlider.value = currHealth;
+
+        if (currHealth <= 0)
             Die();
-        }
     }
 
     void Die()
