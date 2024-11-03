@@ -20,6 +20,16 @@ public class PlayerMovement : MonoBehaviour
     public int damageKick = 2;
     public Transform ki;
     public GameObject bulletPrefab;
+    public float maxStamina = 200;
+    public float currentStamina;
+    public ManaBar manaBar;
+
+    void Start()
+    {
+        manaBar = FindObjectOfType<ManaBar>();
+        currentStamina = 100;
+        manaBar.HandleManaBar(currentStamina, maxStamina);
+    }
 
     void Update()
     {
@@ -85,7 +95,12 @@ public class PlayerMovement : MonoBehaviour
 
     void Shoot()
     {
-        Instantiate(bulletPrefab, ki.position, ki.rotation);
+        if(currentStamina > 50)
+        {
+            currentStamina -= 50;
+            manaBar.HandleManaBar(currentStamina, maxStamina);
+            Instantiate(bulletPrefab, ki.position, ki.rotation);
+        }
     }
 
     private void OnDrawGizmosSelected()

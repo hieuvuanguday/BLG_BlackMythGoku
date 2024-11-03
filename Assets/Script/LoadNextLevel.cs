@@ -8,10 +8,16 @@ public class LoadNextLevel : MonoBehaviour
 {
     public float delaySecond = 2;
     private string[] sceneOrder = { "1st_floor", "2nd_floor", "3rd_floor", "4th_floor", "5th_floor", "6th_floor", "7th_floor", "Final_boss_floor" };
+    public Collect collect;
+
+    private void Start()
+    {
+        collect = FindObjectOfType<Collect>();
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.name == "player")
+        if (collision.gameObject.name == "player" && collect.hasDragonBall == true)
         {
             collision.gameObject.SetActive(false);
             ModeSelect();
