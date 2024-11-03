@@ -214,7 +214,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 0.25, z: 0.25}
+  m_LocalScale: {x: 1, y: 0.25, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 877520750}
@@ -5501,7 +5501,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6028196216383f6489d46f5e171af58b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxHealth: 0
   deathEffect: {fileID: 3042781326995401654, guid: 5db17f9241aa8b940b0e17fce2e8019c, type: 3}
+  enemyHealthSlider: {fileID: 0}
 --- !u!61 &703542461
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5653,7 +5655,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1547202067}
@@ -5786,7 +5788,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: -4.889, z: 0}
-  m_LocalScale: {x: 0.538, y: 0.185, z: 1}
+  m_LocalScale: {x: 0.538, y: 0.185, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 877520750}
@@ -6375,7 +6377,7 @@ Transform:
   m_GameObject: {fileID: 1977914653}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 11.282212, y: -3.3300002, z: -10}
+  m_LocalPosition: {x: 11.314096, y: -3.3300002, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
