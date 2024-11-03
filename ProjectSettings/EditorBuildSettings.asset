@@ -15,24 +15,6 @@ EditorBuildSettings:
     path: Assets/Scenes/2nd_floor.unity
     guid: db63ae864be1bfe469fa189fe982c337
   - enabled: 1
-    path: Assets/Scenes/3rd_floor.unity
-    guid: f6cbe716ff96b744e903fd9f32db7505
-  - enabled: 1
-    path: Assets/Scenes/4th_floor.unity
-    guid: ab9f522a9c75278469ea939d235e1a7c
-  - enabled: 1
-    path: Assets/Scenes/5th_floor.unity
-    guid: 39b4acd650fed3c4594534836ead710e
-  - enabled: 1
-    path: Assets/Scenes/zth_floor.unity
-    guid: 1211390b045019644b34023215a157cf
-  - enabled: 1
-    path: Assets/Scenes/7th_floor.unity
-    guid: 0a698cb66957d4c42af40e127855f12f
-  - enabled: 1
-    path: Assets/Scenes/final_boss_floor.unity
-    guid: fbfa2e68839e4bd47a671aa0ea311e41
-  - enabled: 1
     path: Assets/Scenes/score_board.unity
     guid: 8797be471941f944daed79c538f5dc7a
   m_configObjects: {}

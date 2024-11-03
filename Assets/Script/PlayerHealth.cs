@@ -1,21 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class PlayerHealth : MonoBehaviour
 {
     public float maxHealth = 100f;
-    private float currentHealth;
-
-    public GameObject bloodEffect;
-    public Slider playerHealthSlider;
+    public float currentHealth;
+    public GameObject player;
+    public HealthBar healthBar;
 
     void Start()
     {
         currentHealth = maxHealth;
-        playerHealthSlider.maxValue = maxHealth;
-        playerHealthSlider.value = maxHealth;
+        healthBar.HandleHealthBar(currentHealth, maxHealth);
     }
 
     public void AddDamage(float damage)
@@ -23,16 +22,18 @@ public class PlayerHealth : MonoBehaviour
         if (damage <= 0) return;
 
         currentHealth -= damage;
-        playerHealthSlider.value = currentHealth;
+        healthBar.HandleHealthBar(currentHealth, maxHealth);
 
         if (currentHealth <= 0)
             Die();
     }
 
-    void Die()
+    public IEnumerable Die()
     {
-        Instantiate(bloodEffect, transform.position, Quaternion.identity);
-        gameObject.SetActive(false);
-        Debug.Log("Player has died.");
+        healthBar.HandleHealthBar(0, maxHealth);
+        Score.scoreValue = 0;
+        player.SetActive(false);
+        yield return new WaitForSeconds(1f);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }
