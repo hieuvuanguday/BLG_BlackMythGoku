@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using UnityEngine;
 using UnityEngine.Tilemaps;
+using UnityEngine.SceneManagement;
 
 public class Collect : MonoBehaviour
 {
     public Tilemap tilemap;
     public bool hasDragonBall = false;
 
-    void OnCollisionEnter2D(Collision2D collision)
+    IEnumerator OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
@@ -33,6 +34,11 @@ public class Collect : MonoBehaviour
                         hasDragonBall = true;
                         tilemap.SetTile(cellPosition, null);
                         UnityEngine.Debug.Log(hasDragonBall);
+                    }
+                    else if (tile.name == "dead")
+                    {
+                        yield return new WaitForSeconds(1f);
+                        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
                     }
                 }
             }
