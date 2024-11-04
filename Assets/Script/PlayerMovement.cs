@@ -20,14 +20,14 @@ public class PlayerMovement : MonoBehaviour
     public int damageKick = 2;
     public Transform ki;
     public GameObject bulletPrefab;
-    public float maxStamina = 200;
+    public float maxStamina = 400;
     public float currentStamina;
     public ManaBar manaBar;
 
     void Start()
     {
         manaBar = FindObjectOfType<ManaBar>();
-        currentStamina = 100;
+        currentStamina = 200;
         manaBar.HandleManaBar(currentStamina, maxStamina);
     }
 
