@@ -11,6 +11,7 @@ public class Collect : MonoBehaviour
     public PlayerHealth playerHealth;
     public PlayerMovement playerMovement;
     public ManaBar manaBar;
+    public TileBase emptyTile;
 
     void Start()
     {
@@ -19,7 +20,6 @@ public class Collect : MonoBehaviour
         manaBar = FindObjectOfType<ManaBar>();
         playerMovement = FindObjectOfType<PlayerMovement>();
     }
-
 
     IEnumerator OnCollisionEnter2D(Collision2D collision)
     {
@@ -33,20 +33,17 @@ public class Collect : MonoBehaviour
                 TileBase tile = tilemap?.GetTile(cellPosition);
                 if (tile != null)
                 {
-                    Debug.Log("Tile name: " + tile.name);
-
                     if (tile.name == "red_apple")
                     {
-                        playerMovement.currentStamina += 5;
+                        playerMovement.currentStamina = Mathf.Min(playerMovement.currentStamina + 5, playerMovement.maxStamina);
                         manaBar.HandleManaBar(playerMovement.currentStamina, playerMovement.maxStamina);
                         Score.scoreValue += 5;
-                        tilemap.SetTile(cellPosition, null);
+                        tilemap.SetTile(cellPosition, emptyTile);
                     }
                     else if (tile.name == "treasure")
                     {
                         hasDragonBall = true;
                         tilemap.SetTile(cellPosition, null);
-                        Debug.Log(hasDragonBall);
                     }
                     else if (tile.name == "dead")
                     {
